@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f7738b8-e4d9-4a8e-ac34-8076ab84dac6" name="Default Changelist" comment="" />
+    <list default="true" id="6f7738b8-e4d9-4a8e-ac34-8076ab84dac6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/web/main.dart" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,21 +16,47 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DartProblemsView" auto-scroll-to-source="true" group-by-severity="false" />
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/main.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-34">
+              <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
+              <folding>
+                <element signature="e#15#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/main.dart">
+        <entry file="file://$PROJECT_DIR$/web/shader.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="112">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -43,21 +75,31 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>dart</find>
+      <find>useProgram</find>
+      <find>vertex</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/web/shader.dart" />
         <option value="$PROJECT_DIR$/web/main.dart" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="549" />
-    <option name="y" value="282" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="799" />
     <option name="height" value="483" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -96,6 +138,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -125,7 +168,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="549" y="282" width="799" height="483" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -134,12 +177,12 @@
       <window_info id="UI Designer" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49714285" weight="0.19079837" />
       <window_info id="Structure" order="1" sideWeight="0.50285715" side_tool="true" weight="0.19079837" />
-      <window_info anchor="bottom" id="Dart Analysis" sideWeight="0.49924356" weight="0.32850242" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.64857143" />
+      <window_info anchor="bottom" id="Dart Analysis" sideWeight="0.49924356" weight="0.3257143" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.36553946" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.50075644" side_tool="true" weight="0.18357489" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Flutter Performance" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.22866344" />
+      <window_info anchor="bottom" id="Messages" weight="0.39714286" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -160,9 +203,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -170,13 +210,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+        <state relative-caret-position="-34">
+          <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#15#34#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/shader.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>

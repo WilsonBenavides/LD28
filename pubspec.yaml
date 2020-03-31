@@ -6,7 +6,8 @@ description: An absolute bare-bones web app.
 environment:
   sdk: '>=2.7.0 <3.0.0'
 
-#dependencies:
+dependencies:
+  vector_math: any
 #  path: ^1.6.0
 
 dev_dependencies:
