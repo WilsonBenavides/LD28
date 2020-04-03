@@ -50,20 +50,21 @@ Shader quadShader = new Shader("""
   
   void main() {
     v_texcoord = a_pos.xy; 
-    gl_Position =u_viewTransform*u_cameraTransform*vec4(a_pos, 1.0);
+    gl_Position =u_viewTransform*u_cameraTransform*u_objectTransform*vec4(a_pos, 1.0);
   }
 """,/*============================================================*/"""
   precision highp float;
   
   varying vec2 v_texcoord;
   
-  uniform sampler2D u_text;
+  uniform sampler2D u_tex;
   uniform vec3 u_color;
   
   void main() {
-    vec4 col = texture2D(u_tex, v_texCoord);
+    vec4 col = texture2D(u_tex, v_texcoord);
+    col = vec4(1.0, 0.0, 1.0, 1.0);
     if (col.a > 0.0) {
-      gl_FragColor = col*v_color;
+      gl_FragColor = col*vec4(u_color, 1.0);
     } else {
       discard;
     }

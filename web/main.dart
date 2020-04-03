@@ -25,12 +25,12 @@ class Quad {
     gl.getUniformLocation(shader.program, "u_color");
 
     Float32List vertexArray = new Float32List(4*3);
-    vertexArray.insertAll(0*3, [0.0, 0.0, 0.0]);
-    vertexArray.insertAll(1*3, [1.0, 0.0, 0.0]);
-    vertexArray.insertAll(2*3, [1.0, 1.0, 0.0]);
-    vertexArray.insertAll(3*3, [0.0, 1.0, 0.0]);
+    vertexArray.setAll(0*3, [0.0, 0.0, 0.0]);
+    vertexArray.setAll(1*3, [1.0, 0.0, 0.0]);
+    vertexArray.setAll(2*3, [1.0, 1.0, 0.0]);
+    vertexArray.setAll(3*3, [0.0, 1.0, 0.0]);
     Int16List indexArray = new Int16List(6);
-    indexArray.insertAll(0, [0, 1, 2, 0, 2, 3]);
+    indexArray.setAll(0, [0, 1, 2, 0, 2, 3]);
 
     gl.useProgram(shader.program);
     gl.enableVertexAttribArray(posLocation);
@@ -38,26 +38,37 @@ class Quad {
     gl.bindBuffer(WebGL.WebGL.ARRAY_BUFFER, vertexBuffer);
     gl.bufferDataTyped(WebGL.WebGL.ARRAY_BUFFER, vertexArray, WebGL.WebGL.STATIC_DRAW);
     gl.vertexAttribPointer(posLocation, 3, WebGL.WebGL.FLOAT, false, 0, 0);
+
+    WebGL.Buffer indexBuffer = gl.createBuffer();
+    gl.bindBuffer(WebGL.WebGL.ELEMENT_ARRAY_BUFFER, indexBuffer);
+    gl.bufferDataTyped(WebGL.WebGL.ELEMENT_ARRAY_BUFFER, indexArray, WebGL.WebGL.STATIC_DRAW);
+    gl.bindBuffer(WebGL.WebGL.ELEMENT_ARRAY_BUFFER, indexBuffer);
   }
 
-  Float32List viewMatrixList = new Float32List(16);
-  Float32List cameraMatrixList = new Float32List(16);
   void setCamera(Matrix4 viewMatrix, Matrix4 cameraMatrix) {
-    viewMatrix.copyIntoArray(viewMatrixList);
-    cameraMatrix.copyIntoArray(cameraMatrixList);
-    gl.uniformMatrix4fv(viewTransformLocation, false, viewMatrixList);
-    gl.uniformMatrix4fv(viewTransformLocation, false, cameraMatrixList);
+    gl.uniformMatrix4fv(viewTransformLocation, false, viewMatrix.storage);
+    gl.uniformMatrix4fv(cameraTransformLocation, false, cameraMatrix.storage);
   }
 
+  Matrix4 objectMatrix = new Matrix4.identity();
   void render(int x, int y, int w, int h, int uo, int vo) {
+    //objectMatrixList.copyIntoArray(cameraMatrixList);
+    objectMatrix.setIdentity();
+    objectMatrix.scale(w*1.0, h*1.0, 0.0);
+    objectMatrix.translate(x*1.0, y*1.0, 0.0);
+    gl.uniformMatrix4fv(objectTransformLocation, false, objectMatrix.storage);
+
+    gl.drawElements(WebGL.WebGL.TRIANGLES, 6, WebGL.WebGL.UNSIGNED_SHORT, 0);
 
   }
 }
 
 class Game {
   CanvasElement canvas;
-
   Math.Random random;
+  Quad quad;
+  Matrix4 viewMatrix, cameraMatrix;
+  double fov = 90.0;
 
   void start() {
     random = new Math.Random();
@@ -66,6 +77,7 @@ class Game {
     if (gl == null) {
       gl = canvas.getContext("experimental.webgl");
     }
+    quad = new Quad(quadShader);
     if (gl != null) {
       window.requestAnimationFrame(render);
     }
@@ -75,6 +87,11 @@ class Game {
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.clearColor(random.nextDouble(), random.nextDouble(), random.nextDouble(), 1.0);
     gl.clear(WebGL.WebGL.COLOR_BUFFER_BIT);
+
+    viewMatrix = makePerspectiveMatrix(fov*Math.pi/180, canvas.width/canvas.height, 0.01, 100.0);
+    cameraMatrix = new Matrix4.identity();
+    quad.setCamera(viewMatrix, cameraMatrix);
+    quad.render(0, 0, 16, 16, 0, 0);
     window.requestAnimationFrame(render);
   }
 }
