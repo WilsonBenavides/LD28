@@ -26,9 +26,9 @@ class Quad {
 
     Float32List vertexArray = new Float32List(4*3);
     vertexArray.setAll(0*3, [0.0, 0.0, 0.0]);
-    vertexArray.setAll(1*3, [1.0, 0.0, 0.0]);
+    vertexArray.setAll(1*3, [0.0, 1.0, 0.0]);
     vertexArray.setAll(2*3, [1.0, 1.0, 0.0]);
-    vertexArray.setAll(3*3, [0.0, 1.0, 0.0]);
+    vertexArray.setAll(3*3, [1.0, 0.0, 0.0]);
     Int16List indexArray = new Int16List(6);
     indexArray.setAll(0, [0, 1, 2, 0, 2, 3]);
 
@@ -51,12 +51,14 @@ class Quad {
   }
 
   Matrix4 objectMatrix = new Matrix4.identity();
-  void render(int x, int y, int w, int h, int uo, int vo) {
+  void render(int x, int y, int w, int h, int uo, int vo, Vector4 color) {
     //objectMatrixList.copyIntoArray(cameraMatrixList);
     objectMatrix.setIdentity();
-    objectMatrix.scale(w*1.0, h*1.0, 0.0);
+    //objectMatrix.scale(w*1.0, h*1.0, 0.0);
     objectMatrix.translate(x*1.0, y*1.0, 0.0);
+    objectMatrix.translate(0.0, 0.0, -0.5);
     gl.uniformMatrix4fv(objectTransformLocation, false, objectMatrix.storage);
+    gl.uniform4fv(colorLocation, color.storage);
 
     gl.drawElements(WebGL.WebGL.TRIANGLES, 6, WebGL.WebGL.UNSIGNED_SHORT, 0);
 
@@ -91,7 +93,8 @@ class Game {
     viewMatrix = makePerspectiveMatrix(fov*Math.pi/180, canvas.width/canvas.height, 0.01, 100.0);
     cameraMatrix = new Matrix4.identity();
     quad.setCamera(viewMatrix, cameraMatrix);
-    quad.render(0, 0, 16, 16, 0, 0);
+    Vector4 whiteColor = new Vector4(0.0, 0.0, 0.0, 1.0);
+    quad.render(0, 0, 16, 16, 0, 0, whiteColor);
     window.requestAnimationFrame(render);
   }
 }
